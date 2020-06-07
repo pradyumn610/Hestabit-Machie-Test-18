@@ -100,7 +100,10 @@ class App extends Component {
         ctx.mozImageSmoothingEnabled = false;
         ctx.imageSmoothingEnabled = false;
 
-      document.body.appendChild(canvas);
+     // document.body.appendChild(canvas);
+     html2canvas(document.body)
+    .then(canvas => this._saveAs(canvas.toDataURL(), 'screenshot'))
+    .catch(err => console.log('err', err));
 
   });
 
